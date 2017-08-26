@@ -27,7 +27,8 @@ app.get('/scrape/:category', function(req, res){
   })
 })
 
-app.listen('8081')
+app.get()
+app.listen(process.env.PORT || '8081')
 
 console.log('Listening on 8081')
 
