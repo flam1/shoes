@@ -2,8 +2,10 @@ var express = require('express')
 var fs = require('fs')
 var request = require('request')
 var cheerio = require('cheerio')
+var cors = require('cors')
 
 var app = express()
+app.use(cors())
 
 app.get('/scrape/:category', function(req, res){
   var url = 'https://stockx.com/sneakers/' + req.params.category
