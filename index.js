@@ -27,9 +27,8 @@ app.get('/scrape/:category', function(req, res){
   })
 })
 
-app.get()
-app.listen(process.env.PORT || '8081')
+app.listen(process.env.PORT || 8081)
 
-console.log('Listening on 8081')
+console.log('Listening...')
 
 exports = module.exports = app
