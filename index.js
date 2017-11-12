@@ -24,7 +24,7 @@ app.get('/scrape/:category', function(req, res){
         res.status(400).send('error')
       }
 
-      res.status(200).send({src: shoe.children[1].attribs.src})
+      res.status(200).send({src: shoe})
     }
   })
 })
