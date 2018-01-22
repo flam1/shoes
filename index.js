@@ -14,17 +14,23 @@ app.get('/scrape/:category', function(req, res){
     if (!error) {
       var $ = cheerio.load(html)
 
-      var imageHref = ''
+      // var shoes = $('.img')
+      // var shoe = shoes[Math.random() * shoes.length | 0]
 
-      var shoes = $('.img')
-      var shoe = shoes[Math.random() * shoes.length | 0]
-      console.log((shoe))
-      
-      if(!shoe.children){
-        res.status(400).send('error')
-      }
+      let shoes = []
 
-      res.status(200).send({src: shoe.children[1].attribs.src})
+      let dump = $('.img').each((i, shoe) => {
+        console.log(shoe)
+        if (shoe && shoe.children) {
+          shoes.push({
+            name: shoe.children[1].attribs.alt,
+            src: shoe.children[1].attribs['data-cfsrc']
+          })
+        }
+      })
+
+      console.log(shoes)
+      res.status(200).send({shoes: shoes})
     }
   })
 })
